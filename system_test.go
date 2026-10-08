@@ -146,7 +146,7 @@ func TestFind(t *testing.T) {
 		{"mindepth", []string{"find", ".", "-mindepth", "2", "-type", "f"}, "", "./sub/c.go\n./sub/deep/d.go\n", 0},
 		{"prune", []string{"find", ".", "-name", "sub", "-prune", "-o", "-type", "f", "-print"}, "", "./a.go\n./b.txt\n", 0},
 		{"empty", []string{"find", ".", "-empty"}, "", "./b.txt\n./empty\n", 0},
-		{"size", []string{"find", ".", "-size", "+1k"}, "", "./sub/deep/d.go\n", 0},
+		{"size", []string{"find", ".", "-type", "f", "-size", "+1k"}, "", "./sub/deep/d.go\n", 0},
 		{"size bytes", []string{"find", ".", "-type", "f", "-size", "-1c"}, "", "./b.txt\n", 0},
 		{"mtime", []string{"find", ".", "-type", "f", "-mtime", "+1"}, "", "./a.go\n", 0},
 		{"mmin", []string{"find", ".", "-type", "f", "-mmin", "-60", "-name", "*.go"}, "", "./sub/c.go\n./sub/deep/d.go\n", 0},
